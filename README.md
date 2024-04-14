@@ -60,6 +60,6 @@ Dado um CVV par, o token será gerado usando a rotação  circular dos 4 último
 Para rodar os testes, rode o seguinte comando
 
 ```bash
-  npm run test
+  dotnet test
 ```
 
