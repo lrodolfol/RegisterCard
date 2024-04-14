@@ -3,7 +3,7 @@
 namespace RegisterCard.Application.DTO.Client;
 public record ReadClient
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string Cpf { get; set; } = null!;
     public List<ReadCreditCard> CreditCards { get; set; } = new();

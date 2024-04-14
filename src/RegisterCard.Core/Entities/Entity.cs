@@ -1,11 +1,11 @@
 ﻿namespace RegisterCard.Core.Entities;
-public abstract class Entity : IEquatable<Guid>
+public abstract class Entity : IEquatable<int>
 {
-    public Guid Id { get; private set; }
+    public int Id { get; private set; }
 
-    public Entity()
-        => Id = Guid.NewGuid();
-    public bool Equals(Guid other) =>
+    //public Entity()
+    //    => Id = Guid.NewGuid();
+    public bool Equals(int other) =>
         Id == other;
     public override int GetHashCode() =>
         Id.GetHashCode();

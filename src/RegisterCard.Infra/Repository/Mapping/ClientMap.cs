@@ -10,6 +10,7 @@ public class ClientMap : IEntityTypeConfiguration<Client>
         builder.ToTable("Client");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
 
         builder.Property(x => x.Name)
             .HasColumnName("Name")

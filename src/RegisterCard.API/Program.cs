@@ -41,7 +41,7 @@ public partial class Program {
         });
 
 
-        app.MapGet("api/v1/client/{id}", [AllowAnonymous] async ([FromRoute] Guid id, [FromServices] ClientQuery handler) =>
+        app.MapGet("api/v1/client/{id}", [AllowAnonymous] async ([FromRoute] int id, [FromServices] ClientQuery handler) =>
         {
             var result = await handler.GetAsync(id);
 
@@ -63,12 +63,12 @@ public partial class Program {
 
 
         //creditCard
-        app.MapPost("api/v1/{clientId}/credit-card", [AllowAnonymous] async ([FromRoute] Guid clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler) =>
+        app.MapPost("api/v1/{clientId}/credit-card", [AllowAnonymous] async ([FromRoute] int clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler) =>
         {
             var result = await handler.CreateAsync(creditCard, clientId);
 
             if (result.StatusCode == 201)
-                return Results.CreatedAtRoute();
+                return Results.Created();
             else if (result.StatusCode == 400)
                 return Results.BadRequest(result.Data);
             else

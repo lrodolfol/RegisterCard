@@ -19,13 +19,13 @@ public class CreditCardCommand
         ILogger logger) =>
         (_repository, _tokenRepository, _logger) = (repository, tokenRepository, logger);
 
-    public async Task<BaseResult<Guid>> CreateAsync(EditCreditCard dto, Guid clientId)
+    public async Task<BaseResult<int>> CreateAsync(EditCreditCard dto, int clientId)
     {
         try
         {
             dto.Validate();
             if (!dto.IsValid)
-                return new BaseResult<Guid>(new Guid(), dto.Notifications.ToList(), false, 400);
+                return new BaseResult<int>(0, dto.Notifications.ToList(), false, 400);
 
             Core.Entities.CreditCard creditCart;
             creditCart = dto;
@@ -34,17 +34,17 @@ public class CreditCardCommand
 
             await _repository.CreateAsync(creditCart);
 
-            return new BaseResult<Guid>(creditCart.Id, true, "Client successfuly created", 201);
+            return new BaseResult<int>(creditCart.Id, true, "Client successfuly created", 201);
         }
         catch (InvalidCpfException)
         {
             _logger.LogError("CPF number is invalid");
-            return new BaseResult<Guid>(new Guid(), false, "CPF number is invalid", 400);
+            return new BaseResult<int>(0, false, "CPF number is invalid", 400);
         }
         catch (Exception ex)
         {
             _logger.LogError($"An unhandled error ocurred for create client. check messsage => {ex.Message}");
-            return new BaseResult<Guid>(new Guid(), false, $"We have an error. Please contact the support", 500);
+            return new BaseResult<int>(0, false, $"We have an error. Please contact the support", 500);
         }
     }
 

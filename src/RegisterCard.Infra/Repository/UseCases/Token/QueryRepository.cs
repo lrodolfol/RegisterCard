@@ -9,7 +9,7 @@ public class QueryRepository : IQueryRepository
     public QueryRepository(AppDbContext context) =>
         (_context) = (context);
 
-    public async Task<Core.Aggregates.Token?> GetAsync(Guid id) =>
+    public async Task<Core.Aggregates.Token?> GetAsync(int id) =>
         await _context.Token
         .FirstOrDefaultAsync(x => x.Id == id);
 }

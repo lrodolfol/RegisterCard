@@ -9,7 +9,7 @@ public class QueryRepository : IQueryRepository
     public QueryRepository(AppDbContext context) =>
         (_context) = (context);
 
-    public async Task<RegisterCard.Core.Entities.Client?> GetAsync(Guid id) =>
+    public async Task<RegisterCard.Core.Entities.Client?> GetAsync(int id) =>
         await _context.Client
         .Include(client => client.CreditCards)
             .ThenInclude(token => token.Token)

@@ -10,6 +10,7 @@ public class CreditCardMap : IEntityTypeConfiguration<CreditCard>
         builder.ToTable("CreditCard");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn();
 
         builder.Property(x => x.Number)
             .HasColumnName("Number")
