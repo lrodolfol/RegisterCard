@@ -25,6 +25,6 @@ public class Integrationtest : IClassFixture<WebApplicationFactory<RegisterCard.
 
         var response = await client.PostAsync("api/v1/client", strContent);
 
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
     }
 }
