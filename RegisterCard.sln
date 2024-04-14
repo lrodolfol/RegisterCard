@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegisterCard.Core", "src\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegisterCard.Infra", "src\RegisterCard.Infra\RegisterCard.Infra.csproj", "{B0B5314A-8BB6-4CBE-847E-A9EDABFAF282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterCard.API", "src\RegisterCard.API\RegisterCard.API.csproj", "{294C2E72-12F3-4F6A-912E-06357A743888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegisterCard.API", "src\RegisterCard.API\RegisterCard.API.csproj", "{294C2E72-12F3-4F6A-912E-06357A743888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterCard.Test", "src\RegisterCard.Test\RegisterCard.Test.csproj", "{02E3F452-A3B9-46D6-BD22-6B84F2F037D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{294C2E72-12F3-4F6A-912E-06357A743888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{294C2E72-12F3-4F6A-912E-06357A743888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{294C2E72-12F3-4F6A-912E-06357A743888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E3F452-A3B9-46D6-BD22-6B84F2F037D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E3F452-A3B9-46D6-BD22-6B84F2F037D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E3F452-A3B9-46D6-BD22-6B84F2F037D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E3F452-A3B9-46D6-BD22-6B84F2F037D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{76FC07E2-EF7D-4B04-9693-7F9F482EF87E} = {3C374371-8E27-4858-9693-1C74F0B69654}
 		{B0B5314A-8BB6-4CBE-847E-A9EDABFAF282} = {3C374371-8E27-4858-9693-1C74F0B69654}
 		{294C2E72-12F3-4F6A-912E-06357A743888} = {3C374371-8E27-4858-9693-1C74F0B69654}
+		{02E3F452-A3B9-46D6-BD22-6B84F2F037D2} = {3C374371-8E27-4858-9693-1C74F0B69654}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8C519F2-1FFF-431E-83CB-BA2424196D17}
