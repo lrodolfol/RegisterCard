@@ -12,6 +12,7 @@ public class TokenCreditCardTest
     public void ShouldCreateAValidToken(string creditCardNumber, short securityCode, string expectedToken)
     {
         var generator = new CreditCardTokenGenerator();
+
         var token = generator.Generate(
             new BeloToken(),
             new Core.Entities.CreditCard(creditCardNumber, securityCode)

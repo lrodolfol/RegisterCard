@@ -6,34 +6,43 @@ using RegisterCard.Application.DTO.CreditCard;
 using RegisterCard.Application.UseCases.Client;
 using RegisterCard.Application.UseCases.CreditCard;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+namespace RegisterCard.API;
 
-builder.AddDatabase();
-builder.AddContainers();
-builder.AddLogging();
+public partial class Program {
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Logging.ClearProviders();
+        builder.Logging.AddConsole();
 
-var app = builder.Build();
+        builder.AddDatabase();
+        builder.AddContainers();
+        builder.AddLogging();
 
-app.UseHttpsRedirection();
+        var app = builder.Build();
 
-app.MapGet("api/v1/healthCheck", ()
-    => "Its Works!");
+        app.UseHttpsRedirection();
 
-//client
-app.MapPost("api/v1/client", ([FromBody] EditClient client, [FromServices] ClientCommand handler)
-    => handler.CreateAsync(client));
+        app.MapGet("api/v1/healthCheck", ()
+            => "Its Works!");
 
-app.MapGet("api/v1/client/{id}", ([FromRoute] Guid id, [FromServices] ClientQuery handler)
-    => handler.Get(id));
+        //client
+        app.MapPost("api/v1/client", ([FromBody] EditClient client, [FromServices] ClientCommand handler)
+            => handler.CreateAsync(client));
 
-app.MapGet("api/v1/client", ([FromServices] ClientQuery handler)
-    => handler.Get());
+        app.MapGet("api/v1/client/{id}", ([FromRoute] Guid id, [FromServices] ClientQuery handler)
+            => handler.Get(id));
+
+        app.MapGet("api/v1/client", ([FromServices] ClientQuery handler)
+            => handler.Get());
 
 
-//creditCard
-app.MapPost("api/v1/{clientId}/credit-card", ([FromRoute] Guid clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler)
-    => handler.CreateAsync(creditCard, clientId));
+        //creditCard
+        app.MapPost("api/v1/{clientId}/credit-card", ([FromRoute] Guid clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler)
+            => handler.CreateAsync(creditCard, clientId));
 
-app.Run();
+        app.Run();
+    }
+}
+
+public partial class Program { }
