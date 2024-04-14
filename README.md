@@ -63,3 +63,6 @@ Para rodar os testes, rode o seguinte comando
   dotnet test
 ```
 
+## Execução
+
+Use o arquivo de coleção do postmand disponibilizado na raiz do projeto para execução da API e devidos novos testes
