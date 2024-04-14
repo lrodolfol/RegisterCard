@@ -1,7 +1,7 @@
-﻿
-using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using RegisterCard.Application.DTO.Client;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 
@@ -25,6 +25,6 @@ public class Integrationtest : IClassFixture<WebApplicationFactory<RegisterCard.
 
         var response = await client.PostAsync("api/v1/client", strContent);
 
-        Assert.NotNull(response);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 }
