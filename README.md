@@ -66,3 +66,4 @@ Para rodar os testes, rode o seguinte comando
 ## Execução
 
 Use o arquivo de coleção do postmand disponibilizado na raiz do projeto para execução da API e devidos novos testes
+RegisterCard_collection.json
