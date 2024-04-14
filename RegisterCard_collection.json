@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "fbb16128-22f8-41af-b712-75c2b032d639",
+		"name": "RegisterCard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18494575"
+	},
+	"item": [
+		{
+			"name": "healthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5083/api/v1/healthCheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"healthCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post Client I",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Kelly cristina\",\r\n    \"Cpf\": \"98438432077\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5083/api/v1/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post Client II",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Rodolfo de Jesus\",\r\n    \"Cpf\": \"79134200061\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5083/api/v1/client/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5083/api/v1/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5083/api/v1/client/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post Credit Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Number\": \"1234567891234503\",\r\n    \"SecurityCode\": 1232\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5083/api/v1/1/credit-card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5083",
+					"path": [
+						"api",
+						"v1",
+						"1",
+						"credit-card"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
