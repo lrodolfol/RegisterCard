@@ -1,4 +1,5 @@
 using DigitalPayments.Application.UseCases.Client;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RegisterCard.API.Extensions;
 using RegisterCard.Application.DTO.Client;
@@ -27,19 +28,52 @@ public partial class Program {
             => "Its Works!");
 
         //client
-        app.MapPost("api/v1/client", ([FromBody] EditClient client, [FromServices] ClientCommand handler)
-            => handler.CreateAsync(client));
+        app.MapPost("api/v1/client", [AllowAnonymous] async ([FromBody] EditClient client, [FromServices] ClientCommand handler) =>
+        {
+            var result = await handler.CreateAsync(client);
 
-        app.MapGet("api/v1/client/{id}", ([FromRoute] Guid id, [FromServices] ClientQuery handler)
-            => handler.Get(id));
+            if (result.StatusCode == 201)
+                return Results.Created("GetClientById", result.Data);
+            else if (result.StatusCode == 400)
+                return Results.BadRequest(result.Data);
+            else
+                return Results.StatusCode(StatusCodes.Status500InternalServerError);
+        });
 
-        app.MapGet("api/v1/client", ([FromServices] ClientQuery handler)
-            => handler.Get());
+
+        app.MapGet("api/v1/client/{id}", [AllowAnonymous] async ([FromRoute] Guid id, [FromServices] ClientQuery handler) =>
+        {
+            var result = await handler.GetAsync(id);
+
+            if (result.StatusCode == 200)
+                return Results.Ok(result);
+            else
+                return Results.BadRequest(result.Data);
+        }).WithName("GetClientById"); ;
+
+        app.MapGet("api/v1/client", [AllowAnonymous] async ([FromServices] ClientQuery handler) =>
+        {
+            var result = handler.Get();
+
+            if (result.StatusCode == 200)
+                return Results.Ok(result);
+            else
+                return Results.BadRequest(result.Data);
+        });
 
 
         //creditCard
-        app.MapPost("api/v1/{clientId}/credit-card", ([FromRoute] Guid clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler)
-            => handler.CreateAsync(creditCard, clientId));
+        app.MapPost("api/v1/{clientId}/credit-card", [AllowAnonymous] async ([FromRoute] Guid clientId, [FromBody] EditCreditCard creditCard, [FromServices] CreditCardCommand handler) =>
+        {
+            var result = await handler.CreateAsync(creditCard, clientId);
+
+            if (result.StatusCode == 201)
+                return Results.CreatedAtRoute();
+            else if (result.StatusCode == 400)
+                return Results.BadRequest(result.Data);
+            else
+                return Results.StatusCode(StatusCodes.Status500InternalServerError);
+        });
 
         app.Run();
     }

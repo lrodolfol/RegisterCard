@@ -12,7 +12,7 @@ public class ClientQuery
     public ClientQuery(IQueryRepository repository, ILogger logger) =>
         (_repository, _logger) = (repository, logger);
 
-    public async Task<BaseResult<ReadClient>> Get(Guid id)
+    public async Task<BaseResult<ReadClient>> GetAsync(Guid id)
     {
         try
         {

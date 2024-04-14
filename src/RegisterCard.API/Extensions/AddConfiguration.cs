@@ -7,13 +7,13 @@ public static class AddConfiguration
 {
     public static void AddDatabase(this WebApplicationBuilder builder)
     {
-        //builder.Services.AddDbContext<AppDbContext>(opt =>
-        //    opt.UseInMemoryDatabase("DigialPayments"));
+        builder.Services.AddDbContext<AppDbContext>(opt =>
+            opt.UseInMemoryDatabase("DigialPayments"));
 
-        builder.Services.AddDbContext<AppDbContext>(x =>
-        x.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly("RegisterCard.API")));
+        //builder.Services.AddDbContext<AppDbContext>(x =>
+        //x.UseSqlServer(
+        //        builder.Configuration.GetConnectionString("DefaultConnection"),
+        //        b => b.MigrationsAssembly("RegisterCard.API")));
     }
 
     public static void AddLogging(this WebApplicationBuilder builder)
