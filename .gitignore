@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/src/RegisterCard.API/Migrations/20240413180620_terceiro.cs
+/src/RegisterCard.API/Migrations/AppDbContextModelSnapshot.cs
+/src/RegisterCard.API/Migrations/20240414183150_quartoII.cs
+/src/RegisterCard.API/Migrations/AppDbContextModelSnapshot.cs
