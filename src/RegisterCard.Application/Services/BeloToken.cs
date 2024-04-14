@@ -13,13 +13,13 @@ public class BeloToken : IGeneratorToken
 
         for (int i = 0; i < creditCard.SecurityCode; i++)
         {
-            resultStr = Run(resultStr);
+            resultStr = Spin(resultStr);
         }
 
         return new Token(resultStr);
     }
 
-    private string Run(string number)
+    private string Spin(string number)
     {
         var newNumber = $"{number[3]}{number[0]}{number[1]}{number[2]}";
         return newNumber;
